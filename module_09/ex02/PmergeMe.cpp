@@ -9,10 +9,19 @@ bool    checkIfDigits(std::string input) {
 }
 
 PmergeMe::PmergeMe(int argc, char **argv) {
+	this->ok = true;
 	for (int i = 1; i < argc; i++) {
 		if (checkIfDigits(argv[i]) == false) {
 			std::cout << "Error: " << argv[i] << " parameter is wrong!" << std::endl;
-			exit (1);
+			std::cout << "parameter must be positive ints separated by space!" << std::endl;
+			this->ok = false;
+			return;
+		}
+		if (std::atof(argv[i]) > 2147483647) {
+			std::cout << "Error: " << argv[i] << " parameter is wrong!" << std::endl;
+            std::cout << "parameter must be positive ints separated by space!" << std::endl;
+			this->ok = false;
+            return;
 		}
 		this->vettore.push_back(std::atoi(argv[i]));
 		this->deque.push_back(std::atoi(argv[i]));
@@ -131,6 +140,7 @@ void	mergeSortV(std::vector<int> &vettore, int start, int end) {
 void	mergeSortD(std::deque<int> &deque, int start, int end) {
 	if (start < end) {
 		int mezzo = (start + end) / 2;
+		mergeSortD(deque, start, mezzo);
 		mergeSortD(deque, start, mezzo);
 		mergeSortD(deque, mezzo + 1, end);
 		doTheMergeD(deque, start, mezzo, end);

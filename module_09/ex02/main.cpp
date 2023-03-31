@@ -6,6 +6,8 @@ int main(int argc, char **argv) {
 		exit(1);
     }
     PmergeMe    ciccio(argc, argv);
+    if (ciccio.ok == false)
+        return (1);
     std::cout << "VECTOR PRIMA DEL MERGE SORT" << std::endl; 
     ciccio.printVector();
     std::cout << "DEQUE PRIMA DEL MERGE SORT" << std::endl;

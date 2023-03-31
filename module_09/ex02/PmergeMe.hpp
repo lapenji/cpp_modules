@@ -12,8 +12,10 @@ class PmergeMe {
 	PmergeMe();
 	std::vector<int>    vettore;
 	std::deque<int>		deque;
+
 	public:
-	
+
+	bool				ok;	
 	PmergeMe(int argc, char **argv);
 	void    printVector();
 	void	mergeMeVandD();
