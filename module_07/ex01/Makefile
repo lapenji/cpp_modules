@@ -1,5 +1,5 @@
 NAME = iter
-SRCS = main.cpp ScalarConverter.cpp
+SRCS = main.cpp
 OBJS = $(SRCS:.cpp=.o)
 CC = g++
 CFLAGS = -Wall -Wextra -Werror -std=c++98

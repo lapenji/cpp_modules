@@ -1,17 +1,5 @@
 #include "iter.hpp"
 
-template<typename T>
-
-void	iter(T *arr, size_t length, void (*f)(T const &param)) {
-	for (size_t i = 0; i < length; i++) {
-		(*f)(arr[i]);
-	}
-}
-
-template<typename T>
-void	printContent(T const &val) {
-	std::cout << val << std::endl;
-}
 
 int main(void)
 {
