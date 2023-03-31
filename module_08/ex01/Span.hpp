@@ -29,6 +29,7 @@ class Span {
 	std::vector<int>::iterator getEnd() {
 		return this->vettore.end();
 	}
+	void	printVector();
 	private:
 	Span();
 	std::vector<int>	vettore;

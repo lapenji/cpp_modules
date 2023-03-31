@@ -1,11 +1,12 @@
-#pragma once
+#ifndef MUTANTSTACK_HPP
+# define MUTANTSTACK_HPP
 
-#include <iostream>
-#include <string>
-#include <list>
-#include <stack>
-#include <algorithm>
-#include <iterator>
+# include <iostream>
+# include <string>
+# include <list>
+# include <stack>
+# include <algorithm>
+# include <iterator>
 
 template <class Type, class Container = std::deque<Type> >
 
@@ -23,3 +24,5 @@ class MutantStack : public std::stack<Type, Container> {
 	iterator	begin() { return this->c.begin();}
 	iterator	end() { return this->c.end();}
 };
+
+#endif

@@ -63,3 +63,13 @@ unsigned int	Span::shortestSpan() {
 	}
 	return res;
 }
+
+void	Span::printVector() {
+	std::vector<int>::iterator it;
+	it = this->vettore.begin();
+	std::cout << "Stampo vettore" << std::endl;
+	while (it != this->vettore.end()) {
+		std::cout << (*it) << std::endl;
+		it++;
+	}
+}
