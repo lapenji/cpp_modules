@@ -46,18 +46,18 @@ BitcoinExchange::BitcoinExchange(std::string& dataFile, std::string& inputFile) 
 	dataFileFd.open(dataFile.c_str());
 	if (dataFileFd.is_open() == false) {
 		std::cout << "Can not open data file data.csv" << std::endl;
-		exit (1);
+		return;
 	}
 	inputFileFd.open(inputFile.c_str());
 	if (inputFileFd.is_open() == false) {
 		std::cout << "Can not open input file" << inputFile << std::endl;
-		exit (1);
+		return;
 	}
 	getline(dataFileFd, tmp);
 	if (tmp != "date,exchange_rate") {
 		std::cout << "Error, data files first column is not 'date,exchange_rate'" << std::endl;
 		dataFileFd.close();
-		exit (1);
+		return;
 	}
 
 	while (getline(dataFileFd, buffer)) {
@@ -73,7 +73,7 @@ BitcoinExchange::BitcoinExchange(std::string& dataFile, std::string& inputFile) 
 	getline(inputFileFd, tmp);
 	if (tmp != "date | value") {
 		std::cout << "Error, input files first column is not 'date | value'" << std::endl;
-		exit (1);
+		return;
 	}
 	i = 0;
 	while (getline(inputFileFd, buffer)) {

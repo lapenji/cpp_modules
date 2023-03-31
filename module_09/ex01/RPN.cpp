@@ -39,12 +39,12 @@ Rnp::Rnp(std::string& operazione) {
 		}
 		else if (operazione[i] != ' ') {
 			std::cout << "Wrong char! ==> " << operazione[i] << std::endl;
-			exit(1);
+			return ;
 		}
 	}
 	if (operatorCounter == 0) {
 		std::cout << "missing operator!" << std::endl;
-		exit(1);
+		return ;
 	}
 	std::cout << "result of [" << operazione << "] is " << pila.top() << std::endl;
 }
