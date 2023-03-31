@@ -28,7 +28,7 @@ int main(void)
 	Array<std::string> stringR(5);
 	for (size_t i = 0; i < stringR.size(); i++)
 	{
-		stringR[i] = std::to_string(i);
+		stringR[i] = i + '0';
 		std::cout << stringR[i] << "s ";
 	}
 	std::cout << std::endl;
