@@ -1,6 +1,8 @@
 #include "RPN.hpp"
 
 Rnp::Rnp(std::string& operazione) {
+	int operatorCounter = 0;
+	
 	for (int i = 0; i < (int)operazione.length(); i++) {
 		if (isdigit(operazione[i])) {
 			this->pila.push(int(operazione[i]) - '0');
@@ -16,18 +18,22 @@ Rnp::Rnp(std::string& operazione) {
 				case '*' :
 					std::cout << operazione[i] << a << " " << b << std::endl;
 					pila.push(multi(a, b));
+					operatorCounter++;
 					break;
 				case '+' :
 					std::cout << operazione[i] << a << " " << b << std::endl;
 					pila.push(addi(a, b));
+					operatorCounter++;
 					break;
 				case '-' :
 					std::cout << operazione[i] << a << " " << b << std::endl;
 					pila.push(sottra(a, b));
+					operatorCounter++;
 					break;
 				case '/' :
 					std::cout << operazione[i] << a << " " << b << std::endl;
 					pila.push(divi(a, b));
+					operatorCounter++;
 					break;
 			}
 		}
@@ -36,7 +42,11 @@ Rnp::Rnp(std::string& operazione) {
 			exit(1);
 		}
 	}
-	std::cout << "il risultato di [" << operazione << "] è " << pila.top() << std::endl;
+	if (operatorCounter == 0) {
+		std::cout << "missing operator!" << std::endl;
+		exit(1);
+	}
+	std::cout << "result of [" << operazione << "] is " << pila.top() << std::endl;
 }
 
 int	Rnp::addi(int a, int b) {

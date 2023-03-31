@@ -3,6 +3,7 @@
 
 # include <iostream>
 # include <stack>
+# include <stdlib.h>
 
 class Rnp {
 	private:
