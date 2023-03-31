@@ -3,6 +3,7 @@
 int main(int argc, char **argv) {
     if (argc < 2) {
         std::cout << "not enough parameters!" << std::endl;
+		exit(1);
     }
     PmergeMe    ciccio(argc, argv);
     std::cout << "VECTOR PRIMA DEL MERGE SORT" << std::endl; 
